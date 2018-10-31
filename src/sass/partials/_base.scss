@@ -1,0 +1,481 @@
+//********************* */ 
+
+// Skapad av:
+// Martina Jansson
+// Datum: 2018-10-28
+// Student Mittuniversitetet, Kurs: DT173G
+
+// **************************/
+
+*, *:before, *:after {
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;padding:0
+}
+img { max-width: 100%; }
+body {
+  background-color:$body-bg;
+  font-family: $ff-s;
+  font-size: $main-fs;
+  color:$dark;
+  line-height:1.5;
+}
+p {line-height: 1.8; margin: 0 0 .5em;}
+
+a {
+  text-decoration: underline;
+  color:$primary-color;
+}
+
+.center { text-align: center;}
+.bold {font-weight:$fw-b; }
+.right {float: right;}
+
+/* -----------------------
+Headings
+------------------------*/
+h1,h2,h3,h4,h5,h6{
+ 
+  font-family: $ff-s;
+}
+
+h1 { font-size: 2.55em; font-weight: $fw-b;}
+h2 { font-size: 1.75em;} 
+h3 { font-size: 1.375em; font-weight: $fw-n;}
+h4 { font-size: 1.125em;} 
+h5 { font-size: 1em; } 
+h6 { font-size: .875em; } 
+
+.intro-title {
+  text-align: center;
+  font-size: $h4;
+  text-transform: uppercase;
+  margin:25px;
+  color:$third-color;
+}
+.section-title {
+  text-align: center;
+  font-size: $h1;
+  text-transform: uppercase;
+  margin:25px;
+}
+
+.sub-title {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: $h4;
+  margin-bottom:25px;
+}
+/* -----------------------
+Banner
+------------------------*/
+.banner {
+    margin-top:56px;
+    position: relative;
+
+    img {
+      z-index:-999;
+    }
+}
+
+.text {
+    position: absolute;
+    max-width: 1240px;
+    margin:0 auto;
+    padding-left:15px;
+    padding-right:55px;
+    top:20%;
+
+    @include mediaMd {
+      top:10%;
+    }
+}  
+  .heading {
+    color:$primary-color;
+    font-size: 5em;
+
+    @include mediaLg {
+      font-size: 4em;
+    }
+
+    @include mediaMd {
+      font-size: 3em;
+    }
+    @include mediaSm {
+      font-size: 2em;
+      padding-left:15px;
+      padding-right:15px;
+    }
+      
+  }
+
+
+
+  .bannertext {
+      line-height: 1.5em;
+      font-size: 1.3em;
+
+      @include mediaMd{
+        font-size: 1em;
+      }
+      @include mediaSm {
+        font-size: 0em;
+      }
+
+    
+    }
+ 
+/* -----------------------
+Layout
+------------------------*/
+.container {
+  max-width: $container;
+  margin: auto;
+  padding: 0 15px;
+}
+section { padding:35px 0;}
+
+article {
+  padding:25px 0px;
+  margin: 25px 0;
+}
+
+footer {
+  background-color:$primary-color;
+  text-align: center;
+  padding:55px 0;
+  color: set-text-color($primary-color);
+}
+
+/* -----------------------
+Colums
+------------------------*/
+.column {
+  padding: 15px;
+  margin: 0.3em ;
+  //border: 1px solid #666;
+}
+.column {
+  flex-basis: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .column {
+    flex: 1;
+  }
+  ._25 {
+    flex: 2.5;
+  }
+  ._5 {
+    flex: 5;
+  }
+}
+
+
+/* -----------------------
+FORM
+------------------------*/
+form {padding:25px 15px;}
+
+input[type=text], input[type=password], textarea  {
+  width: 98%;
+  padding: 12px;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  background:#ffffff;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color:#072248; /* Orange */
+  border: none;
+  color: white!important;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em!important;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: $secondary-color;
+}
+
+
+/* The radiobutton */
+.radiobutton {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.radiobutton input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(226, 226, 226);
+}
+
+/* On mouse-over, add a grey background color */
+.radiobutton:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.radiobutton input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.radiobutton input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.radiobutton .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/* -----------------------
+LOGIN
+------------------------*/
+.login {
+  background-color: $light-color;
+  margin:0 auto;
+  border-radius: 0.5em; 
+  padding:55px 25px;;
+}
+.error {
+  padding: 15px 25px;
+  margin: 0 10px 15px 10px;
+  border: 1px solid #990000;
+  max-width: 100%;
+  color: #990000;
+  background-color: #FDF0EB;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+}
+
+/* -----------------------
+Button
+------------------------*/
+.btn {
+  padding:10px 15px;
+  margin-bottom: 15px;
+  background-color: $primary-color;
+}
+
+.btn_clear {
+  padding:10px;
+  margin-bottom: 15px;
+}
+
+.btn_delete {
+  background-color: #990000;
+  padding: 10px 25px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: $main-fs;
+  color:$white;
+}
+
+/* -----------------------
+Table
+------------------------*/
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  padding:15px 0;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: $primary-color;
+  color:$white;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: $main-fs;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: $main-fs;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.fa, .fas {
+  cursor: pointer;
+  font-size: $main-fs;
+}
+
+/* -----------------------
+Collapsible
+------------------------*/
+
+.delete {
+  color: #990000;
+  float: right;
+  bottom:25px;
+}
+.collapsible {
+  background-color:$primary-color;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: $main-fs;
+}
+
+.active, .collapsible:hover {
+  background-color: $secondary-color;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.circle {
+    border-radius: 50%;
+    padding-top:12px;
+    padding-left:5px;
+    width: 50px;
+    height: 50px; 
+    background-color:$secondary-color;
+    color: set-text-color($secondary-color);
+    
+  }
+
+  .bold {
+    font-weight: 900;
+     display: inline-block;
+    }
+
+  .blue {
+    color:$secondary-color;
+  }
