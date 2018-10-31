@@ -1,4 +1,4 @@
-# First projekt with GIT, GULP, PHP, SASS, MYSQL, CRUD & JSON
+# First project with GIT, GULP, PHP, SASS, MYSQL, CRUD & JSON
 _A basic template, just to know how it works_
 
 ## Verktyg
